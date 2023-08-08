@@ -10,7 +10,20 @@ interval="{{swiperinterval}}" duration="{{swiperduration}}" circular="{{swiperci
 </swiper>
 <view class="title">热门歌手</view>
 <view class="hotlist">
+  <block wx:for="{{hotsinger}}" wx:key="*this">
+    <view class="item">
+      <image src="{{item.picUrl}}"></image>
+      <text>{{item.name}}</text>
+    </view>
+  </block> 
+</view>
+<view class="title">最新音乐</view>
+<view class="musicbox">
   <view class="item">
+    <view class="textbox">
+      <text>青花瓷</text>
+      <text>周杰伦-七里香</text>
+    </view>
     <image src=""></image>
   </view>
 </view>

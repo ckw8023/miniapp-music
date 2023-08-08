@@ -6,13 +6,16 @@ Page({
    */
   data: {
     background:[],
+    hotsinger:[],
+    newsong:[],
     autoplay:true,
     indicatordots:true,
     indicatorcolor: "rgba(255,255,255,0.5)",
     indicatoractive: "rgba(194,12,12,1)",
     swiperinterval: 3000,
     swiperduration: 1000,
-    swipercircular:true
+    swipercircular:true,
+    hotlistimg:"https://p1.music.126.net/W5dB_xym9I-L7L7dMNkn4Q==/90159953495215.jpg"
   },
 
   /**
@@ -33,16 +36,33 @@ Page({
 
   getHotSinger:function(){
     wx.request({
-      url: 'http://localhost:3000/top/artists',
+      url: 'http://localhost:3000/top/artists?offset=0&limit=10',
       dataType:"json",
       success:(result)=>{
-        console.log(result)
+        console.log(result.data.artists)
+        this.setData({
+          hotsinger:result.data.artists
+        })
+      }
+    })
+  },
+
+  getNewSong:function(){
+    wx.request({
+      url: 'http://localhost:3000/personalized/newsonglimit=10',
+      dataType:"json",
+      success:(result)=>{
+        console.log(result.data.artists)
+        this.setData({
+          hotsinger:result.data.artists
+        })
       }
     })
   },
 
    onLoad(options) {
-    this.getbanner()
+    this.getbanner();
+    this.getHotSinger();
   },
 
   /**

@@ -6,8 +6,11 @@ page{
 swiper{
   width: 100%;
   height: 300 rpx;
-  background-color: yellow;
+  background-color: gray;
   /*margin: 10rpx auto;*/
+}
+::-webkit-scrollbar{
+  display:none;
 }
 swiper swiper-item{
   width: 100%;
@@ -16,4 +19,34 @@ swiper-item image{
   display: block;
   width: 100%;
   height: 100%;
+}
+.title{
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  line-height: 50rpx;
+  text-indent: 20rpx;
+  border-left: 2px solid red;
+  color:#333;
+}
+.hotlist{
+  height: 300rpx;
+  /*background-color: yellow;*/
+  display: flex;
+  overflow: auto;
+  align-items: center;
+}
+.hotlist .item{
+  width: 200rpx;
+  text-align: center;
+  margin-right: 20rpx;
+}
+.hotlist .item image{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 10rpx;
+}
+.hotlist .item text{
+  font-size: 28rpx;
+  color: #4d4d4d;
 }
