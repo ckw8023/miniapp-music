@@ -1,0 +1,16 @@
+<!--pages/songlist/songlist.wxml-->
+<swiper indicator-dots="{{indicatordots}}" indicator-color="{{indicatorcolor}}"
+indicator-active-color="{{indicatoractive}}" autoplay="{{autoplay}}"
+interval="{{swiperinterval}}" duration="{{swiperduration}}" circular="{{swipercircular}}">
+  <block wx:for="{{background}}" wx:key="*this">
+    <swiper-item>
+      <image src="{{item.imageUrl}}"></image>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="title">热门歌手</view>
+<view class="hotlist">
+  <view class="item">
+    <image src=""></image>
+  </view>
+</view>
