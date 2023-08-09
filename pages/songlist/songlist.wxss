@@ -22,10 +22,10 @@ swiper-item image{
 }
 .title{
   margin-top: 20rpx;
-  font-size: 30rpx;
+  font-size: 32rpx;
   font-weight: bold;
   line-height: 50rpx;
-  text-indent: 20rpx;
+  text-indent: 30rpx;
   border-left: 2px solid red;
   color:#333;
 }
@@ -49,4 +49,36 @@ swiper-item image{
 .hotlist .item text{
   font-size: 28rpx;
   color: #4d4d4d;
+}
+.musicbox{
+  
+}
+.musicbox .item{
+  display: flex;
+  padding: 10rpx 0rpx;
+  justify-content: space-between;
+  border-bottom: 1rpx solid rgb(236,236,236);
+  margin-left:32rpx;
+}
+.item .textbox{
+  display: flex;
+  flex-direction: column;
+}
+.item .textbox .songtitle{
+  font-size: 35rpx;
+  font-weight: bold;
+}
+.item .textbox .songinfo{
+  font-size: 28rpx;
+  color: #777;
+}
+.item .playing{
+  width: 100rpx;
+  height: 100%;
+  display: flex;
+}
+.item .playing image{
+  width: 80rpx;
+  height: 80rpx;
+  margin:auto;
 }

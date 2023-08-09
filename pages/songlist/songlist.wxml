@@ -21,9 +21,11 @@ interval="{{swiperinterval}}" duration="{{swiperduration}}" circular="{{swiperci
 <view class="musicbox">
   <view class="item">
     <view class="textbox">
-      <text>青花瓷</text>
-      <text>周杰伦-七里香</text>
+      <text class="songtitle" >青花瓷</text>
+      <text class="songinfo" >周杰伦-七里香-歌曲</text>
     </view>
-    <image src=""></image>
+    <view class="playing" >
+      <image src="/img/播放按钮.jpeg"></image>
+    </view>
   </view>
 </view>
