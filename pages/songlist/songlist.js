@@ -8,6 +8,7 @@ Page({
     background:[],
     hotsinger:[],
     newsong:[],
+    newsongsinger:[],
     autoplay:true,
     indicatordots:true,
     indicatorcolor: "rgba(255,255,255,0.5)",
@@ -26,7 +27,7 @@ Page({
       url: 'http://localhost:3000/banner',
       dataType:"json",
       success:(result)=>{
-        console.log(result.data.banners)
+        //console.log(result.data.banners)
         this.setData({
           background:result.data.banners
         })
@@ -39,7 +40,7 @@ Page({
       url: 'http://localhost:3000/top/artists?offset=0&limit=10',
       dataType:"json",
       success:(result)=>{
-        console.log(result.data.artists)
+        //console.log(result.data.artists)
         this.setData({
           hotsinger:result.data.artists
         })
@@ -49,20 +50,34 @@ Page({
 
   getNewSong:function(){
     wx.request({
-      url: 'http://localhost:3000/personalized/newsonglimit=10',
+      url: 'http://localhost:3000/personalized/newsong?limit=10',
       dataType:"json",
       success:(result)=>{
-        console.log(result.data.artists)
+        //console.log(result.data.result)
         this.setData({
-          hotsinger:result.data.artists
+          newsong:result.data.result
         })
       }
     })
   },
 
+  hotlink:function(e){
+    //console.log(e.currentTarget.dataset.index)
+    const index = e.currentTarget.dataset.index
+    const singer = this.data.hotsinger
+    
+    wx.navigateTo({
+      url: '/pages/hotsinger/hotsinger',
+      success: function(res){
+        res.eventChannel.emit('acceptDataFromOpenerPage', { data: singer[index]})
+      }
+    })
+  },
+  
    onLoad(options) {
     this.getbanner();
     this.getHotSinger();
+    this.getNewSong();
   },
 
   /**

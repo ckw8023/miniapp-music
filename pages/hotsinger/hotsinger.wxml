@@ -1,0 +1,10 @@
+<!--pages/hotsinger/hotsinger.wxml-->
+<view class="imgbox">
+    <image src="{{singerdata.data.picUrl}}"></image>
+    <text>{{singername}}</text>
+</view>
+
+<view class="title">歌手简介</view>
+<view>
+    <text>{{singerdetail}}</text>
+</view>

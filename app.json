@@ -1,7 +1,8 @@
 {
   "pages":[
     "pages/songlist/songlist",
-    "pages/find/find"
+    "pages/find/find",
+    "pages/hotsinger/hotsinger"
   ],
   "tabBar": {
     "color": "#777777",

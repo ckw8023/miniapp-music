@@ -67,6 +67,7 @@ swiper-item image{
 .item .textbox .songtitle{
   font-size: 35rpx;
   font-weight: bold;
+  width: 600rpx;
 }
 .item .textbox .songinfo{
   font-size: 28rpx;

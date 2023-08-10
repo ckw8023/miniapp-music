@@ -2,30 +2,34 @@
 <swiper indicator-dots="{{indicatordots}}" indicator-color="{{indicatorcolor}}"
 indicator-active-color="{{indicatoractive}}" autoplay="{{autoplay}}"
 interval="{{swiperinterval}}" duration="{{swiperduration}}" circular="{{swipercircular}}">
-  <block wx:for="{{background}}" wx:key="*this">
+  <block wx:for="{{background}}" wx:key="this">
     <swiper-item>
       <image src="{{item.imageUrl}}"></image>
     </swiper-item>
   </block>
 </swiper>
+
 <view class="title">热门歌手</view>
 <view class="hotlist">
-  <block wx:for="{{hotsinger}}" wx:key="*this">
-    <view class="item">
+  <block wx:for="{{hotsinger}}"  wx:key="this" wx:for-index="i">
+    <view class="item" data-index="{{i}}" bindtap="hotlink">
       <image src="{{item.picUrl}}"></image>
       <text>{{item.name}}</text>
     </view>
   </block> 
 </view>
+
 <view class="title">最新音乐</view>
 <view class="musicbox">
-  <view class="item">
-    <view class="textbox">
-      <text class="songtitle" >青花瓷</text>
-      <text class="songinfo" >周杰伦-七里香-歌曲</text>
+  <block wx:for="{{newsong}}" wx:key="this">
+    <view class="item">
+      <view class="textbox">
+        <text class="songtitle">{{item.name}}</text>
+        <text class="songinfo">{{item.song.artists[0].name}}-{{item.song.album.name}}</text>
+      </view>
+      <view class="playing" >
+        <image src="/img/播放按钮.jpeg"></image>
+      </view>
     </view>
-    <view class="playing" >
-      <image src="/img/播放按钮.jpeg"></image>
-    </view>
-  </view>
+  </block>
 </view>
