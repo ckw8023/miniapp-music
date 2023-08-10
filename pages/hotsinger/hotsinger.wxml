@@ -1,10 +1,25 @@
 <!--pages/hotsinger/hotsinger.wxml-->
 <view class="imgbox">
-    <image src="{{singerdata.data.picUrl}}"></image>
-    <text>{{singername}}</text>
+    <image mode="widthFix" src="{{singerdata.data.picUrl}}"></image>
+    <view class="textbox">
+        <view>{{singername}}</view>
+    </view>
 </view>
 
 <view class="title">歌手简介</view>
-<view>
-    <text>{{singerdetail}}</text>
+<view class="detail">{{singerdetail}}</view>
+
+<view class="title">最新音乐</view>
+<view class="musicbox">
+  <block wx:for="{{hotsong}}" wx:for-index="i" wx:key="this">
+    <view class="item" data-index="{{i}}">
+      <view class="textbox">
+        <text class="songtitle">{{item.name}}</text>
+        <text class="songinfo">{{item.ar[0].name}}-{{item.al.name}}</text>
+      </view>
+      <view class="playing">
+        <image src="/img/播放按钮.jpeg"></image>
+      </view>
+    </view>
+  </block>
 </view>

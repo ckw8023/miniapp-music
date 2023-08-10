@@ -8,6 +8,7 @@ Page({
     singerdata:[],
     singername:[],
     singerdetail:[],
+    hotsong:[],
   },
 
   getSingerData:function(){
@@ -34,6 +35,18 @@ Page({
         //console.log(this.data.singerdetail)
       }
     })
+
+    wx.request({
+      url: 'http://localhost:3000/artist/top/song?id='+id,
+      dataType:"json",
+      success:(result)=>{
+        this.setData({
+          hotsong:result.data.songs,
+        })
+        console.log(this.data.hotsong[1])
+      }
+    })
+
 
   },
 
