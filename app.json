@@ -2,7 +2,8 @@
   "pages":[
     "pages/songlist/songlist",
     "pages/find/find",
-    "pages/hotsinger/hotsinger"
+    "pages/hotsinger/hotsinger",
+    "pages/playmusic/playmusic"
   ],
   "tabBar": {
     "color": "#777777",

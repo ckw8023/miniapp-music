@@ -73,7 +73,15 @@ Page({
       }
     })
   },
-  
+  playmusic:function(){
+    consnt 
+    wx.navigateTo({
+      url: '/pages/playmusic/playmusic',
+      success:function(res){
+        //res.eventChannel.emit('acceptDataFrom OpenerPage', {data: })
+      }
+    })
+  },
    onLoad(options) {
     this.getbanner();
     this.getHotSinger();

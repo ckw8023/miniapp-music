@@ -43,7 +43,7 @@ Page({
         this.setData({
           hotsong:result.data.songs,
         })
-        console.log(this.data.hotsong[1])
+        //console.log(this.data.hotsong[1])
       }
     })
 

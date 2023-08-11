@@ -27,7 +27,7 @@ interval="{{swiperinterval}}" duration="{{swiperduration}}" circular="{{swiperci
         <text class="songtitle">{{item.name}}</text>
         <text class="songinfo">{{item.song.artists[0].name}}-{{item.song.album.name}}</text>
       </view>
-      <view class="playing" >
+      <view class="playing" bindtap="playmusic">
         <image src="/img/播放按钮.jpeg"></image>
       </view>
     </view>
