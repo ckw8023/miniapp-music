@@ -46,7 +46,46 @@ swiper swiper-item image{
     transform: rotate(360deg);
   }
 }
+scroll-view{
+  height: 100%;
+  background-color: blue;
+}
+scroll-view view{
+  color: white;
+  text-align: center;
+}
+.playmode{
+  width: 100rpx;
+  height: 100rpx;
+  position: relative;
+  left: 80%;
+  display: flex;
+}
+.playmode image{
+  width: 90rpx;
+  height: 80rpx;
+  margin: auto;
+}
+.loadbar{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loadbar view{
+  font-size: 30rpx;
+  color: white;
+}
+.loadbar slider{
+  width: 400rpx;
+}
 .footer{
-  height: 200rpx;
-  /*background-color: blue;*/
+  height: 150rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.footer image{
+  width: 80rpx;
+  height: 80rpx;
 }

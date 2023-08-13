@@ -7,8 +7,54 @@
     <image src="{{songDetail.al.picUrl}}"></image>
   </swiper-item>
   <swiper-item>
-  
+    <!--Swiper-->
+    <scroll-view scroll-y="true">
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+      <view>歌词</view>
+    </scroll-view>
   </swiper-item>
 </swiper>
-<!--底部-->
-<view class="footer"></view>
+<!--Play mode-->
+<view class="playmode">
+  <image src="/img/播放-循环播放.png"></image>
+</view>
+<!--Loading bar-->
+<view class="loadbar">
+  <view>00:00</view>
+  <slider block-size="12" selected-color="white"></slider>
+  <view>03:20</view>
+</view>
+<!--Footer-->
+<view class="footer">
+  <image src="/img/上一首.png"></image>
+  <image src="/img/暂停.png"></image>
+  <image src="/img/下一首.png"></image>
+</view>
+<audio src="{{songUrl}}" action="{{action}}"></audio>

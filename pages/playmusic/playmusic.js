@@ -12,6 +12,10 @@ Page({
     songInfo:[],
     songUrl:[],
     songDetail:[],
+    //play method
+    action:{
+      "method":"pause"
+    }
   },
   getSongDetail(){
     wx.request({
@@ -21,21 +25,20 @@ Page({
         this.setData({
           songDetail:result.data.songs[0]
         })
-        console.log(this.data.songDetail)
+        //console.log(this.data.songDetail)
       }
     })
   },
   //get song url
   getSongUrl(){
-    const songId = this.data.songInfo.data.id
     wx.request({
-      url: 'http://localhost:3000/song/url?id='+songId,
+      url: 'http://localhost:3000/song/url?id='+this.data.songId,
       dataType:"json",
       success:(result)=>{
         this.setData({
           songUrl:result.data.data[0].url
         })
-        console.log(this.data.songUrl)
+        //console.log(this.data.songUrl)
       }
     })
   },
@@ -59,7 +62,7 @@ Page({
       })  
     })
     this.getSongDetail()
-    //this.getSongUrl() 
+    this.getSongUrl() 
   },
 
   /**
