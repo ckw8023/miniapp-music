@@ -5,14 +5,61 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    songList:[],
+    currIndex:[],
+    song:{},
+    songId:[],
+    songInfo:[],
+    songUrl:[],
+    songDetail:[],
   },
-
+  getSongDetail(){
+    wx.request({
+      url: 'http://localhost:3000/song/detail?ids='+this.data.songId,
+      dataType:"json",
+      success:(result)=>{
+        this.setData({
+          songDetail:result.data.songs[0]
+        })
+        console.log(this.data.songDetail)
+      }
+    })
+  },
+  //get song url
+  getSongUrl(){
+    const songId = this.data.songInfo.data.id
+    wx.request({
+      url: 'http://localhost:3000/song/url?id='+songId,
+      dataType:"json",
+      success:(result)=>{
+        this.setData({
+          songUrl:result.data.data[0].url
+        })
+        console.log(this.data.songUrl)
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    const eventChannel = this.getOpenerEventChannel()
+    eventChannel.on('acceptDataFromOpenerPage', data => {
+      //console.log(data.data)
+      const songList = data.data.songlist
+      const currIndex = data.data.currIndex
+      const song = songList[currIndex]
+      //console.log(data.data)
+      //console.log(song)
+      this.setData({
+        currIndex:data.data.currIndex,
+        songList:data.data.songlist,
+        song:song,
+        songId:song.id
+      })  
+    })
+    this.getSongDetail()
+    //this.getSongUrl() 
   },
 
   /**

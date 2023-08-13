@@ -1,1 +1,52 @@
 /* pages/playmusic/playmusic.wxss */
+page{
+  height: 100%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+}
+.background{
+  width: 160%;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  opacity: 0.4;
+  z-index: -1;
+}
+.songName{
+  text-align: center;
+  font-size: 50rpx;
+  line-height: 150rpx;
+  color: white;
+  /*background-color: yellow;*/
+}
+swiper{
+  /*background-color: pink;*/
+  flex: 1;
+}
+swiper .imagebox{
+  display: flex;
+}
+swiper swiper-item image{
+  display: block;
+  width: 350rpx;
+  height: 350rpx;
+  border-radius: 50%;
+  border: 100rpx solid #313131;
+  box-shadow: 0rpx 0rpx 100rpx black;
+  margin: auto;
+  animation: imgplay 20s linear infinite;
+}
+@keyframes imgplay{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.footer{
+  height: 200rpx;
+  /*background-color: blue;*/
+}

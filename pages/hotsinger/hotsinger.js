@@ -46,10 +46,50 @@ Page({
         //console.log(this.data.hotsong[1])
       }
     })
-
-
   },
-
+  playmusic:function(e){
+    const index = e.currentTarget.dataset.index
+    const songInfo = this.data.hotsong[index]
+    const musicId = songInfo.id
+    //console.log(musicId)
+    //check if music can play or not
+    wx.request({
+      url: 'http://localhost:3000/check/music?id='+musicId,
+      dataType:"json",
+      success:(result)=>{
+        //console.log(result.data)
+        if(result.data.message === "ok"){
+          //console.log("可以播放")
+          const songlist = this.data.hotsong
+          const objdata = {}
+          objdata.songlist = songlist
+          objdata.currIndex = index
+          //console.log(objdata)
+          wx.navigateTo({
+            url: '/pages/playmusic/playmusic',
+            success:function(res){
+              res.eventChannel.emit('acceptDataFromOpenerPage', {data:objdata })
+            }
+          })
+        }
+        else{
+          //console.log("不可以播放")
+          wx.showModal({
+            title: '提示',
+            content: '歌曲没有版权请选择其他歌曲进行播放',
+            complete: (res) => {
+              if (res.cancel) {
+                
+              }
+              if (res.confirm) {
+                
+              }
+            }
+          })
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

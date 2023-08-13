@@ -11,13 +11,13 @@
 
 <view class="title">最新音乐</view>
 <view class="musicbox">
-  <block wx:for="{{hotsong}}" wx:for-index="i" wx:key="this">
-    <view class="item" data-index="{{i}}">
+  <block wx:for="{{hotsong}}" wx:key="this" wx:for-index="i">
+    <view class="item">
       <view class="textbox">
         <text class="songtitle">{{item.name}}</text>
         <text class="songinfo">{{item.ar[0].name}}-{{item.al.name}}</text>
       </view>
-      <view class="playing">
+      <view class="playing" data-index="{{i}}" bindtap="playmusic">
         <image src="/img/播放按钮.jpeg"></image>
       </view>
     </view>

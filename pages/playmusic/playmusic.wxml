@@ -1,2 +1,14 @@
 <!--pages/playmusic/playmusic.wxml-->
-<text>pages/playmusic/playmusic.wxml</text>
+<image class="background" src="{{songDetail.al.picUrl}}"></image>
+<view class="songName">{{songDetail.al.name}}</view>
+<!--轮播-->
+<swiper>
+  <swiper-item class="imagebox">
+    <image src="{{songDetail.al.picUrl}}"></image>
+  </swiper-item>
+  <swiper-item>
+  
+  </swiper-item>
+</swiper>
+<!--底部-->
+<view class="footer"></view>

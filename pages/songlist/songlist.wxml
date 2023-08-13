@@ -21,13 +21,13 @@ interval="{{swiperinterval}}" duration="{{swiperduration}}" circular="{{swiperci
 
 <view class="title">最新音乐</view>
 <view class="musicbox">
-  <block wx:for="{{newsong}}" wx:key="this">
+  <block wx:for="{{newsong}}" wx:key="this" wx:for-index="i">
     <view class="item">
       <view class="textbox">
         <text class="songtitle">{{item.name}}</text>
         <text class="songinfo">{{item.song.artists[0].name}}-{{item.song.album.name}}</text>
       </view>
-      <view class="playing" bindtap="playmusic">
+      <view class="playing" data-index="{{i}}" bindtap="playmusic">
         <image src="/img/播放按钮.jpeg"></image>
       </view>
     </view>
