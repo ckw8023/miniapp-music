@@ -12,10 +12,52 @@ Page({
     songInfo:[],
     songUrl:[],
     songDetail:[],
+    songLyric:{},
     //play method
     action:{
-      "method":"pause"
+      "method":"play"
     }
+  },
+  getLyric(){
+    wx.request({
+      url: 'http://localhost:3000/lyric?id='+this.data.songId,
+      dataType:"json",
+      success:(result)=>{
+        //console.log(result.data.lrc.lyric)
+        const lyricArray = result.data.lrc.lyric
+        this.cleanLyric(lyricArray)
+      },
+    })
+  },
+  cleanLyric:function(lrc){
+    let lrcData = []
+    const lrcSplit = lrc.split("\n")
+    //console.log(lrcSplit)
+    const re = /\[\d{2}:\d{2}\.\d{2,3}\]/
+    lrcSplit.forEach(item => {
+      if(item != null){
+        let itemTimeline = item.match(re)
+        if(itemTimeline){
+          //get lyrics's time line
+          itemTimeline = itemTimeline[0]
+          itemTimeline = itemTimeline.slice(1,-1)
+          const timelist = itemTimeline.split(":")
+          const time0 = timelist[0]
+          const time1 = timelist[1]
+          //convert time
+          const time = parseFloat(time0)*60 + parseFloat(time1)
+          //get lyrics string 
+          const lyricStr = item.replace(re,"")
+          //console.log(lyricStr)
+          //match lyrics with time
+          lrcData.push([time,lyricStr])
+        }
+      }
+    });
+    console.log(lrcData)
+    this.setData({
+      songLyric:lrcData
+    })
   },
   getSongDetail(){
     wx.request({
@@ -63,8 +105,26 @@ Page({
     })
     this.getSongDetail()
     this.getSongUrl() 
+    this.getLyric()
   },
-
+  //播放控制
+  playcontrol:function(){
+    const curStat = this.data.action.method
+    if(curStat == "pause"){
+      this.setData({
+        action:{
+          "method":"play"
+        } 
+      })
+    }
+    else{
+      this.setData({
+        action:{
+          "method":"pause"
+        } 
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

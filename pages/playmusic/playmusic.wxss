@@ -6,9 +6,9 @@ page{
   flex-direction: column;
 }
 .background{
-  width: 160%;
+  width: 180%;
   height: 100%;
-  position: absolute;
+  position: fixed;
   left: 50%;
   transform: translate(-50%);
   opacity: 0.4;
@@ -48,11 +48,13 @@ swiper swiper-item image{
 }
 scroll-view{
   height: 100%;
-  background-color: blue;
+  /*background-color: blue;*/
 }
 scroll-view view{
   color: white;
   text-align: center;
+  font-size: 35rpx;
+  line-height: 80rpx;
 }
 .playmode{
   width: 100rpx;
@@ -62,7 +64,7 @@ scroll-view view{
   display: flex;
 }
 .playmode image{
-  width: 90rpx;
+  width: 80rpx;
   height: 80rpx;
   margin: auto;
 }
