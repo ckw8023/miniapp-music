@@ -24,7 +24,7 @@ Page({
    */
   getbanner:function(){
     wx.request({
-      url: 'http://localhost:3000/banner',
+      url: 'http://192.168.101.105:3000/banner',
       dataType:"json",
       success:(result)=>{
         //console.log(result.data.banners)
@@ -37,7 +37,7 @@ Page({
 
   getHotSinger:function(){
     wx.request({
-      url: 'http://localhost:3000/top/artists?offset=0&limit=10',
+      url: 'http://192.168.101.105:3000/top/artists?offset=0&limit=10',
       dataType:"json",
       success:(result)=>{
         //console.log(result.data.artists)
@@ -50,7 +50,7 @@ Page({
 
   getNewSong:function(){
     wx.request({
-      url: 'http://localhost:3000/personalized/newsong?limit=10',
+      url: 'http://192.168.101.105:3000/personalized/newsong?limit=10',
       dataType:"json",
       success:(result)=>{
         //console.log(result.data.result)
@@ -79,7 +79,7 @@ Page({
     //console.log(musicId)
     //check if music can play or not
     wx.request({
-      url: 'http://localhost:3000/check/music?id='+musicId,
+      url: 'http://192.168.101.105:3000/check/music?id='+musicId,
       dataType:"json",
       success:(result)=>{
         //console.log(result.data)

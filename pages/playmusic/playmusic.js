@@ -22,7 +22,7 @@ Page({
   },
   getLyric(){
     wx.request({
-      url: 'http://localhost:3000/lyric?id='+this.data.songId,
+      url: 'http://192.168.101.105:3000/lyric?id='+this.data.songId,
       dataType:"json",
       success:(result)=>{
         //console.log(result.data.lrc.lyric)
@@ -86,7 +86,7 @@ Page({
 
   getSongDetail(){
     wx.request({
-      url: 'http://localhost:3000/song/detail?ids='+this.data.songId,
+      url: 'http://192.168.101.105:3000/song/detail?ids='+this.data.songId,
       dataType:"json",
       success:(result)=>{
         this.setData({
@@ -99,7 +99,7 @@ Page({
   //get song url
   getSongUrl(){
     wx.request({
-      url: 'http://localhost:3000/song/url?id='+this.data.songId,
+      url: 'http://192.168.101.105:3000/song/url?id='+this.data.songId,
       dataType:"json",
       success:(result)=>{
         this.setData({
@@ -128,9 +128,11 @@ Page({
         songId:song.id
       })  
     })
-    this.getSongDetail()
-    this.getSongUrl() 
-    this.getLyric()
+    setTimeout(() => {
+      this.getSongDetail()
+      this.getSongUrl() 
+      this.getLyric()
+    }, 10)
   },
   //播放控制
   playcontrol:function(){

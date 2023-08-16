@@ -16,7 +16,7 @@ Page({
     //console.log(' id is '+id)
     //get singer's name
     wx.request({
-      url: 'http://localhost:3000/artists/detail?id='+id,
+      url: 'http://192.168.101.105:3000/artists/detail?id='+id,
       dataType:"json",
       success:(result)=>{
         this.setData({
@@ -26,7 +26,7 @@ Page({
     })
     //get singer's description
     wx.request({
-      url: 'http://localhost:3000/artist/desc?id='+id,
+      url: 'http://192.168.101.105:3000/artist/desc?id='+id,
       dataType:"json",
       success:(result)=>{
         this.setData({
@@ -37,7 +37,7 @@ Page({
     })
 
     wx.request({
-      url: 'http://localhost:3000/artist/top/song?id='+id,
+      url: 'http://192.168.101.105:3000/artist/top/song?id='+id,
       dataType:"json",
       success:(result)=>{
         this.setData({
@@ -54,7 +54,7 @@ Page({
     //console.log(musicId)
     //check if music can play or not
     wx.request({
-      url: 'http://localhost:3000/check/music?id='+musicId,
+      url: 'http://192.168.101.105:3000/check/music?id='+musicId,
       dataType:"json",
       success:(result)=>{
         //console.log(result.data)
@@ -100,7 +100,9 @@ Page({
         singerdata:data,
       })  
     })
-    this.getSingerData()
+    setTimeout(() => {
+      this.getSingerData()
+    }, 10)
 
   },
 
