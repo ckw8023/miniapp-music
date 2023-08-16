@@ -13,6 +13,8 @@ Page({
     songUrl:[],
     songDetail:[],
     songLyric:{},
+    lrcindex:0,
+    top:0,
     //play method
     action:{
       "method":"play"
@@ -54,11 +56,34 @@ Page({
         }
       }
     });
-    console.log(lrcData)
+    //console.log(lrcData)
     this.setData({
       songLyric:lrcData
     })
   },
+  songTimechange:function(e){
+    //get data from e
+    let currTime = e.detail.currentTime
+    this.lyricRoll(currTime)
+  },
+
+  lyricRoll:function(playtime){
+    const lrcData = this.data.songLyric
+    for(let i = 0; i < lrcData.length-1; i++){
+      if(lrcData[i][0] < playtime && playtime < lrcData[i+1][0]){
+        this.setData({
+          lrcindex:i
+        })
+      }
+    }
+    this.setData({
+      top:(this.data.lrcindex-3) * 40
+    })
+  },
+  timePlay:function(){
+
+  },
+
   getSongDetail(){
     wx.request({
       url: 'http://localhost:3000/song/detail?ids='+this.data.songId,

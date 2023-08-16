@@ -8,9 +8,9 @@
   </swiper-item>
   <swiper-item>
     <!--Swiper-->
-    <scroll-view scroll-y="true">
-      <block wx:for="{{songLyric}}" wx:key="this">
-        <view>{{item[1]}}</view>
+    <scroll-view scroll-y="false" scroll-top="{{top}}">
+      <block wx:for="{{songLyric}}" wx:key="this" wx:for-index="in">
+        <view class="{{in === lrcindex ? 'color':''}}" data-index="{{in}}">{{item[1]}}</view>
       </block>
     </scroll-view>
   </swiper-item>
@@ -32,4 +32,5 @@
   bindtap="playcontrol"></image>
   <image src="/img/下一首.png"></image>
 </view>
-<audio src="{{songUrl}}" action="{{action}}"></audio>
+<audio src="{{songUrl}}" action="{{action}}"
+bindtimeupdate="songTimechange"></audio>

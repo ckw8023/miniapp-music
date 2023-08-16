@@ -51,10 +51,15 @@ scroll-view{
   /*background-color: blue;*/
 }
 scroll-view view{
-  color: white;
+  color: rgb(209,209,209);
   text-align: center;
   font-size: 35rpx;
   line-height: 80rpx;
+}
+scroll-view .color{
+  color:rgb(255,187,0);
+  font-size: 40rpx;
+  font-weight: bold;
 }
 .playmode{
   width: 100rpx;
