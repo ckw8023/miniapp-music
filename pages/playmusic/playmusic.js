@@ -18,7 +18,13 @@ Page({
     //play method
     action:{
       "method":"play"
-    }
+    },
+    songTime:{
+      "current":"00:00",
+      "total":"03:00",
+      "maxtime":180,
+      "valuetime":0
+    },
   },
   getLyric(){
     wx.request({
@@ -64,7 +70,9 @@ Page({
   songTimechange:function(e){
     //get data from e
     let currTime = e.detail.currentTime
+    let timeTotal = e.detail.duration
     this.lyricRoll(currTime)
+    this.timePlay(timeTotal, currTime)
   },
 
   lyricRoll:function(playtime){
@@ -80,8 +88,30 @@ Page({
       top:(this.data.lrcindex-3) * 40
     })
   },
-  timePlay:function(){
+  timePlay:function(totalTime, playtime){
+    let m = totalTime/60
+    m = Math.floor(m)
+    let s = totalTime%60
+    s = Math.floor(s)
+    if(m < 10) m = "0"+m
+    if(s < 10) s = "0"+s
+    //console.log(m + ":" + s)
 
+    let playm = playtime/60
+    playm = Math.floor(playm)
+    let plays = playtime%60
+    plays = Math.floor(plays)
+    if(playm < 10) playm = "0"+playm
+    if(plays < 10) plays = "0"+plays
+    //console.log(playm + ":" + plays)
+    this.setData({
+      songTime:{
+        "current": playm + ":" + plays,
+        "total":m + ":" + s,
+        "maxtime":totalTime,
+        "valuetime":playtime
+      }
+    })
   },
 
   getSongDetail(){

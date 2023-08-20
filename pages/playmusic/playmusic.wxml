@@ -21,9 +21,9 @@
 </view>
 <!--Loading bar-->
 <view class="loadbar">
-  <view>00:00</view>
-  <slider block-size="12" selected-color="white"></slider>
-  <view>03:20</view>
+  <view>{{songTime.current}}</view>
+  <slider block-size="12" activeColor="#c20c0c" max="{{songTime.maxtime}}" value="{{songTime.valuetime}}"></slider>
+  <view>{{songTime.total}}</view>
 </view>
 <!--Footer-->
 <view class="footer">
