@@ -19,12 +19,10 @@ Page({
     action:{
       "method":"play"
     },
-    songTime:{
-      "current":"00:00",
-      "total":"03:00",
-      "maxtime":180,
-      "valuetime":0
-    },
+    current:"00:00",
+    total:"03:00",
+    maxtime:180,
+    valuetime:0
   },
   getLyric(){
     wx.request({
@@ -105,12 +103,10 @@ Page({
     if(plays < 10) plays = "0"+plays
     //console.log(playm + ":" + plays)
     this.setData({
-      songTime:{
-        "current": playm + ":" + plays,
-        "total":m + ":" + s,
-        "maxtime":totalTime,
-        "valuetime":playtime
-      }
+      current: playm + ":" + plays,
+      total:m + ":" + s,
+      maxtime:totalTime,
+      valuetime:playtime
     })
   },
 
@@ -137,6 +133,23 @@ Page({
         })
         //console.log(this.data.songUrl)
       }
+    })
+  },
+  dragSlider:function(e){
+    let value = e.detail.value
+    this.setData({
+      valuetime:value
+    })
+    this.setData({
+      action:{
+        method:"setCurrentTime",
+        data:value
+      },
+    })
+    this.setData({
+      action:{
+        "method":"play"
+      },
     })
   },
   /**
