@@ -28,10 +28,11 @@
 </view>
 <!--Footer-->
 <view class="footer">
-  <image src="/img/上一首.png"></image>
+  <image src="/img/上一首.png" bindtap="prevSong"></image>
   <image src="/img/{{action.method==='play'?'暂停':'播放2'}}.png" 
   bindtap="playcontrol"></image>
-  <image src="/img/下一首.png"></image>
+  <image src="/img/下一首.png" bindtap="nextSong"></image>
 </view>
-<audio src="{{songUrl}}" action="{{action}}"
-bindtimeupdate="songTimechange"></audio>
+<audio src="http://music.163.com/song/media/outer/url?id={{songId}}" 
+action="{{action}}" bindtimeupdate="songTimechange">
+</audio>

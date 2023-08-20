@@ -17,7 +17,7 @@ Page({
     top:0,
     //play method
     action:{
-      "method":"play"
+      method:"play"
     },
     current:"00:00",
     total:"03:00",
@@ -148,9 +148,43 @@ Page({
     })
     this.setData({
       action:{
+        method:"play"
+      },
+    })
+  },
+  nextSong(){
+    const musicList = this.data.songList
+    let index = this.data.currIndex
+    index++
+    if(index === musicList.length) index = 0
+    this.setData({
+      songId:musicList[index].id,
+      currIndex:index
+    })
+    this.setData({
+      action:{
         "method":"play"
       },
     })
+    this.getLyric()
+    this.getSongDetail()
+  },
+  prevSong(){
+    const musicList = this.data.songList
+    let index = this.data.currIndex
+    index--
+    if(index < 0) index = musicList.length - 1
+    this.setData({
+      songId:musicList[index].id,
+      currIndex:index
+    })
+    this.setData({
+      action:{
+        "method":"play"
+      },
+    })
+    this.getLyric()
+    this.getSongDetail()
   },
   /**
    * 生命周期函数--监听页面加载
